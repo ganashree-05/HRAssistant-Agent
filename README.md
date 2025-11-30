@@ -79,18 +79,13 @@ python hr_assistant.py
 Open the URL displayed in your terminal (e.g., http://127.0.0.1:7860)
 Interact with the chatbot, upload PDFs, and test analytics
 
-🔧 Potential Improvements
+## Potential Improvements
 
-Integrate with OpenAI GPT or other LLMs for advanced question answering.
-
-Use a Vector Database (Pinecone, FAISS) for semantic search over PDFs.
-
-Implement user authentication for multi-employee use.
-
-Connect to real HR databases (Firebase, Supabase, Google Sheets) for persistent storage.
-
-Enhance UI/UX with custom HTML/CSS themes or a full React/Next.js front-end.
-
-Add multi-language support for diverse employees.
-
-Create automated notifications for unanswered queries or pending approvals.
+- Integrate with live HR databases for real-time policy updates.
+- Use GPT API or other LLMs for more conversational and dynamic answers.
+- Implement user authentication and role-based access for secure internal usage.
+- Enhance PDF parsing with NLP techniques to better extract context from documents.
+- Add multi-language support for global employees.
+- Export analytics to CSV or Excel for HR reporting and insights.
+- Integrate with Slack, Teams, or email notifications for real-time updates.
+- Include voice-based queries and responses for accessibility.
