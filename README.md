@@ -79,12 +79,18 @@ python hr_assistant.py
 Open the URL displayed in your terminal (e.g., http://127.0.0.1:7860)
 Interact with the chatbot, upload PDFs, and test analytics
 
-##Potential Improvements
+🔧 Potential Improvements
 
--Integrate external APIs (Google Calendar, Notion, Sheets) for dynamic HR updates.
--Use a database like Firebase or Supabase to persist sessions and feedback.
--Add authentication for multi-user access.
--Enhance NLP understanding with OpenAI GPT or similar AI models for complex queries.
--Provide multi-language support.
--Add richer analytics dashboards with charts and visualizations.
--Deploy as a web app with a custom domain for company-wide access.
+Integrate with OpenAI GPT or other LLMs for advanced question answering.
+
+Use a Vector Database (Pinecone, FAISS) for semantic search over PDFs.
+
+Implement user authentication for multi-employee use.
+
+Connect to real HR databases (Firebase, Supabase, Google Sheets) for persistent storage.
+
+Enhance UI/UX with custom HTML/CSS themes or a full React/Next.js front-end.
+
+Add multi-language support for diverse employees.
+
+Create automated notifications for unanswered queries or pending approvals.
