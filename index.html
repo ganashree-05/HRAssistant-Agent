@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enterprise HRAssistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🏢 Enterprise HRAssistant</h1>
+    </header>
+    <div class="container">
+        <!-- Left Column -->
+        <div class="left-column">
+            <!-- Chatbox -->
+            <section class="box" id="chat-section">
+                <h2>💬 Chatbot</h2>
+                <input type="text" id="employee-id" placeholder="Employee ID (e.g., EMP001)">
+                <div id="chat-window"></div>
+                <input type="text" id="user-msg" placeholder="Type your question here...">
+                <button id="send-msg">Send</button>
+            </section>
+
+            <!-- Quick Suggestions -->
+            <section class="box" id="quick-suggestions">
+                <h2>⚡ Quick Suggestions</h2>
+                <div class="buttons">
+                    <button>What is the leave policy?</button>
+                    <button>How to apply for leave?</button>
+                    <button>How to claim reimbursement?</button>
+                    <button>When is salary credited?</button>
+                    <button>How to reset my password?</button>
+                    <button>What is PF?</button>
+                </div>
+            </section>
+
+            <!-- Feedback & Export -->
+            <section class="box" id="feedback-export">
+                <h2>📝 Feedback & Export</h2>
+                <div class="buttons">
+                    <button id="feedback-yes">👍 Helpful</button>
+                    <button id="feedback-no">👎 Not Helpful</button>
+                </div>
+                <div class="buttons">
+                    <button id="export-pdf">Export PDF</button>
+                    <button id="export-txt">Export TXT</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <!-- Knowledge Base -->
+            <section class="box" id="kb-section">
+                <h2>📁 Knowledge Base</h2>
+                <input type="file" id="upload-pdf">
+                <p id="upload-status">Upload status: None</p>
+                <select id="category-filter">
+                    <option>All</option>
+                    <option>Leave</option>
+                    <option>Benefits</option>
+                    <option>Policies</option>
+                    <option>IT</option>
+                    <option>Payroll</option>
+                </select>
+            </section>
+
+            <!-- Unified Analytics Panel -->
+            <section class="box" id="analytics-section">
+                <h2>📊 Analytics</h2>
+                <pre id="analytics-panel">
+Total Chats: 0
+Category Stats:
+  Leave: 0
+  Benefits: 0
+  IT: 0
+  Payroll: 0
+  Policies: 0
+
+Feedback Stats:
+  👍 Helpful: 0
+  👎 Not Helpful: 0
+
+Top Questions:
+</pre>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
