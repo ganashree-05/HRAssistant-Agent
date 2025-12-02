@@ -4,9 +4,10 @@ from fpdf import FPDF
 import datetime, re
 from difflib import get_close_matches
 from collections import defaultdict
+import os
 
 # -----------------------------
-# Backend (same as before)
+# Backend data
 # -----------------------------
 hr_faqs = [
     {"question": "What is the leave policy?", "answer": "- 20 paid leaves per year\n- Casual Leave: 10 days\n- Sick Leave: 10 days\n- Carry forward up to 5 days", "category": "Leave"},
@@ -31,13 +32,12 @@ hr_faqs = [
     {"question": "What is the dress code?", "answer": "Business casual is the standard dress code, formal attire on client meetings.", "category": "Policies"},
 ]
 
-
 sessions = defaultdict(lambda: {"history": [], "feedback": []})
 kb_sections = []
 quick_suggestions = [f["question"] for f in hr_faqs[:5]]
 
 # -----------------------------
-# Functions (PDF, QA, Sessions)
+# Functions
 # -----------------------------
 def split_into_sections(text):
     text = text.replace('\r\n', '\n').replace('\r', '\n')
@@ -156,7 +156,7 @@ def get_analytics():
     return f"📊 Total chats: {total_chats}\n👍 Feedbacks: {total_feedback}\n💼 Leave questions: {leave_questions}\n💵 Reimbursement questions: {reimbursement_questions}"
 
 # -----------------------------
-# Gradio UI with CSS layout
+# Gradio UI
 # -----------------------------
 custom_css = """
 body {background-color:#f5f7fa;}
@@ -171,7 +171,6 @@ with gr.Blocks(css=custom_css) as demo:
     gr.Markdown("<h1>🏢 HR Assistant Agent</h1>")
 
     with gr.Row():
-        # Left Panel: Chat + Feedback + Analytics
         with gr.Column(scale=2):
             with gr.Box():
                 gr.Markdown("### 💬 Chatbot")
@@ -203,7 +202,6 @@ with gr.Blocks(css=custom_css) as demo:
                 analytics_btn = gr.Button("Refresh Analytics")
                 analytics_btn.click(fn=get_analytics, inputs=[], outputs=[analytics_box])
 
-        # Right Panel: KB + Upload + Category
         with gr.Column(scale=1):
             with gr.Box():
                 gr.Markdown("### 📁 Knowledge Base")
@@ -219,4 +217,8 @@ with gr.Blocks(css=custom_css) as demo:
     export_pdf_btn.click(fn=lambda eid: export_chat_pdf(eid.strip() if eid else "GUEST"), inputs=[employee_id], outputs=[download_pdf_file])
     export_txt_btn.click(fn=lambda eid: export_chat_txt(eid.strip() if eid else "GUEST"), inputs=[employee_id], outputs=[download_txt_file])
 
-demo.launch(share=True)
+# -----------------------------
+# Launch for Render
+# -----------------------------
+port = int(os.environ.get("PORT", 10000))
+demo.launch(server_name="0.0.0.0", server_port=port)
