@@ -219,4 +219,6 @@ with gr.Blocks(css=custom_css) as demo:
     export_pdf_btn.click(fn=lambda eid: export_chat_pdf(eid.strip() if eid else "GUEST"), inputs=[employee_id], outputs=[download_pdf_file])
     export_txt_btn.click(fn=lambda eid: export_chat_txt(eid.strip() if eid else "GUEST"), inputs=[employee_id], outputs=[download_txt_file])
 
-demo.launch(share=True)
+if __name__ == "__main__":
+    demo.launch(server_name="0.0.0.0", server_port=10000)
+
